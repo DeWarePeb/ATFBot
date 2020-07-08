@@ -5,7 +5,7 @@ const IGNORED = new Set([
   ]);
 
 module.exports.run = async(bot, message, args) =>{
-    if (args.split (' ').length !== 2) 
+    if (args.length() != 2) 
       return message.channel.send('?lock <ROLE_ID> TRUE | FALSE | NULL');
     let [ roleId, flag ] = args.split(' ');
     if(!isNaN(roleId) && validateFlag(flag.toLowerCase())) {
