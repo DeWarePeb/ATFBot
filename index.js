@@ -3,6 +3,13 @@ const botconfig = require("./botconfig.json");
 const fs = require("fs");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
+//log
+const { Client, MessageEmbed } = require('discord.js');
+const client = new Client({ partials: ['MESSAGE'] });
+//log
+
+
+
 const client = new discord.Client();
 client.commands = new discord.Collection();
 
@@ -36,6 +43,22 @@ client.on("ready", async () => {
 
 });
 
+//log
+client.on('messageDelete', message => {
+    if(!message.partial) {
+        const channel = client.channels.cache.get('ID HERE');
+        if(channel) {
+            const embed = new MessageEmbed()
+                .setTitle('Deleted Message')
+                .addField('Author', `${message.author.tag} (${message.author.id})`, true)
+                .addField('Channel', `${message.channel.name} (${message.channel.id})`, true)
+                .setDescription(message.content)
+                .setTimestamp();
+            channel.send(embed);
+        }
+    }
+});
+//log
 
 client.on("guildMemberAdd", member => {
 
