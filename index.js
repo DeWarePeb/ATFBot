@@ -4,7 +4,6 @@ const fs = require("fs");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 //log
-const { Client, MessageEmbed } = require('discord.js');
 const client = new Client({ partials: ['MESSAGE'] });
 //log
 
