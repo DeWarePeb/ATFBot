@@ -46,7 +46,7 @@ client.on("ready", async () => {
 //log
 client.on('messageDelete', message => {
     if(!message.partial) {
-        const channel = client.channels.cache.get('ID HERE');
+        const channel = client.channels.cache.get('647342917538807821');
         if(channel) {
             const embed = new MessageEmbed()
                 .setTitle('Deleted Message')
