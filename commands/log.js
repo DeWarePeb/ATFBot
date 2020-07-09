@@ -10,7 +10,7 @@ module.exports.run = async (oldMessage, newMessage) =>{
           )
           .addField(`Old Content`, oldMessage.content, true)
           .addField(`New Content`, newMessage.content, true);
-        var channel = oldMessage.guild.channels.get(id);(
+        var channel = oldMessage.guild.channels.cache.get;(
           (ch) => ch.name === "🔫server-log"
         );
         if (!channel) return;
