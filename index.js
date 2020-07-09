@@ -106,7 +106,7 @@ client.on('message', async message => {
     if(message.content.toLowerCase().startsWith('!pokemon')) {
         const pokemon = message.content.toLowerCase().split(" ")[1];
         try {
-            const pokeData = await getPokemon(pokemon);
+            const pokeData = await Pokemon(pokemon);
             const { 
                 sprites, 
                 stats, 
@@ -117,7 +117,7 @@ client.on('message', async message => {
                 abilities,
                 types
             } = pokeData;
-            const embed = new MessageEmbed();
+            var embed = new discord.MessageEmbed();
             embed.setTitle(`${name} #${id}`)
             embed.setThumbnail(`${sprites.front_default}`);
             stats.forEach(stat => embed.addField(stat.stat.name, stat.base_stat, true));
