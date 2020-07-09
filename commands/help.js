@@ -1,62 +1,16 @@
 const discord = require("discord.js");
-const botConfig = require("../botconfig.json");
 
-module.exports.run = async(client, message, args) =>{
+module.exports.run = async (client, message, args) => {
 
-    var commandList = [];
-    var prefix = botConfig.prefix;
-
-    client.commands.forEach(command => {
-
-        var constructor = {
-
-            name:command.help.name,
-            description: command.help.description,
-            catagory: command.help.catagory
-
-        }
-
-        commandList.push(constructor);
-    });
-    
-    var response = "**Bot commands**\n\n ";
-    var Information = "**__Information__**\n";
-    var Fun = "\n**__Fun__**\n";
-    var Moderation = "\n**__Moderation__**"
-
-    for (let i = 0; i < commandList.length; i++) {
-        const command = commandList[i];
-
-        if(command["catagory"] == "Information") {
-
-            Information += `${prefix}${command["name"]} - ${command["description"]}\n`;
-
-        } else if(command["catagory"] == "Fun") {
-            
-            Fun += `${prefix}${command["name"]} - ${command["description"]}\n`;
-        
-        } else if (command["catagory"] == "moderation"){
-            
-            Moderation += `${prefix}${command["name"]} - ${command["description"]}\n`;
-        
-        }
-    
-    }
-        
-    response += Information;
-    response += Fun;
-    response += Moderation;
-
-    message.author.send(response).then(() => {
-        message.channel.send("Slided in yo dms");
-    }).catch(() => {
-        message.channel.send("Open yo dms");
-    })
-       
+    var botEmbed = new discord.MessageEmbed()
+        .setTitle("Bot help")
+        .setColor("#0099ff")
+        .addField(`**Fun commands** \n /rps - Rock Paper Sissors command \n /hi - says hi \n\n **Info commands** \n /avatar - gives the avatar of a member \n /info - Gives information about the bot \n /logo - gives the crew logo \n /rules - gives the crew rules \n /server-info - gives information about the server \n /suggestion - make a suggestion \n /ticket - open a ticket \n\n **Moderation commands** \n /ban - ban someone \n /clear - delete messages from a channel \n /kick - kick someone \n /mute - mute someone \n /tempmute - temp mute someone \n /unmute - unmute someone `)
+        .setTimestamp()
+        .addFooter("Bot Name", client.user.username)
+    return message.channel.send(botEmbed);
 
 
-        
-           
 }
 
 module.exports.help = {
