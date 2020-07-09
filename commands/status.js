@@ -3,7 +3,7 @@ const client = new discord.Client();
 
 module.exports.run = async(client, message, args) =>{
     //OWNER ONLY COMMAND
-  if (!message.member.hasPermission("KICK_MEMBERS")) {
+  if (!message.member.hasPermission("EDIT_ROLES")) {
     return message.channel.send("This command can only be used by big boys")
   }
   //ARGUMENT
