@@ -1,9 +1,9 @@
 const discord = require("discord.js");
 const client = new discord.Client();
 
-module.exports.run = async(bot, message, args) =>{
+module.exports.run = async(client, message, args) =>{
     //OWNER ONLY COMMAND
-if(!message.author.id === "YOUR ID") {
+if(!message.author.id === "My id") {
     return message.channel.send("This command can only be used by owner")
   }
   //ARGUMENT
