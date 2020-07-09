@@ -12,8 +12,7 @@ if(!message.author.id === "271350440522809356") {
   }
   
   client.user.setPresence({ activity: { name: args.join(" ") }})
- await message.channel.send("Updated the bot status")
-  process.exit(1);
+ await message.channel.send("Updated the bot status");
     
 
 }
