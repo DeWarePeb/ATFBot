@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
 
 module.exports.run = async(bot, message, args) =>{
-    let response = await fetch(`${BASE_URL}/${pokemon}`);
+    var response = await fetch(`${BASE_URL}/${pokemon}`);
     return await response.json();
     
 }
