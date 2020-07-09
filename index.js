@@ -4,6 +4,8 @@ const fs = require("fs");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 
+const db = require("quick.db");
+
 const client = new discord.Client();
 client.commands = new discord.Collection();
 
