@@ -1,4 +1,6 @@
   const discord = require("discord.js");
+  const config = require("../botconfig.json.json")
+  const db = require("quick.db")
 
   module.exports.run = async(bot, message, args) =>{
      var prefix = await db.fetch(`prefix_${message.guild.id}`)
