@@ -1,8 +1,8 @@
 const discord = require("discord.js");
 
-module.exports.run = async(oldMessage, newMessage) =>{
+module.exports. async = (oldMessage, newMessage) =>{
     try {
-        let embed = new MessageEmbed()
+        var embed = new MessageEmbed()
           .setTitle(`New message edited`)
           .setColor(`GREEN`)
           .setDescription(
@@ -10,7 +10,7 @@ module.exports.run = async(oldMessage, newMessage) =>{
           )
           .addField(`Old Content`, oldMessage.content, true)
           .addField(`New Content`, newMessage.content, true);
-        let channel = oldMessage.guild.channels.cache.find(
+        var channel = oldMessage.guild.channels.cache.find(
           (ch) => ch.name === "🔫server-log"
         );
         if (!channel) return;
