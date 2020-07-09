@@ -48,6 +48,7 @@ client.on('messageDelete', message => {
                 .addField('Author', `@${message.author.tag}`, true)
                 .addField('Channel', `#${message.channel.name}`, true)
                 .setDescription(message.content)
+                .setFooter(`Author ID: (${message.author.id}) | Message ID: (${message.author.id}) `)
                 .setTimestamp();
             channel.send(embed);
         }
