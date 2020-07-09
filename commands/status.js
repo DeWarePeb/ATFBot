@@ -18,7 +18,7 @@ db.set(`status`, args.join(" "))
 }
 
 module.exports.help = {
-    name: "hi",
+    name: "status",
     description: "Hi",
     category: "Fun"
 }
