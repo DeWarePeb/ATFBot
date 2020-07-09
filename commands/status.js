@@ -11,7 +11,7 @@ if(!message.author.id === "YOUR ID") {
     return message.channel.send("Please give status message")
   }
   
-client.user.set(`status`, args.join(" "))
+client.set(`status`, args.join(" "))
  await message.channel.send("Updated the bot status")
   process.exit(1);
     
