@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports. async = (oldMessage, newMessage) =>{
+module.exports  = async (oldMessage, newMessage) =>{
     try {
         var embed = new discord.MessageEmbed()
           .setTitle(`New message edited`)
