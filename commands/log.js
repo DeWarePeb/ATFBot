@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports. async = (oldMessage, newMessage) =>{
     try {
-        var embed = new MessageEmbed()
+        var embed = new discord.MessageEmbed()
           .setTitle(`New message edited`)
           .setColor(`GREEN`)
           .setDescription(
