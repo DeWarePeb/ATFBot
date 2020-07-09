@@ -17,6 +17,8 @@ module.exports.run = async(bot, message, args) =>{
       .send(args.slice(1).join(" "))
       .catch(() => message.channel.send("That user could not be DMed!"))
       .then(() => message.channel.send(`Sent a message to ${user.user.tag}`));
+
+      message.delete();
     
 
 }
