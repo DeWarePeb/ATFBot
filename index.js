@@ -106,7 +106,7 @@ client.on('message', async message => {
     if(message.content.toLowerCase().startsWith('!pokemon')) {
         const pokemon = message.content.toLowerCase().split(" ")[1];
         try {
-            const pokeData = await Pokemon(pokemon);
+            const pokeData = await getPokemon(pokemon);
             const { 
                 sprites, 
                 stats, 
