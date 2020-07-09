@@ -33,7 +33,7 @@ client.login(process.env.token);
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
-    client.user.setActivity("ATF on top!", { type: "LISTENING" });
+    //client.user.setActivity("ATF on top!", { type: "LISTENING" });
 
 
 });
