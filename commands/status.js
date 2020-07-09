@@ -1,4 +1,5 @@
 const discord = require("discord.js");
+const db = require("quick.db")
 
 module.exports.run = async(bot, message, args) =>{
     //OWNER ONLY COMMAND
