@@ -3,10 +3,6 @@ const botconfig = require("./botconfig.json");
 const fs = require("fs");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
-//log
-const client = new Client({ partials: ['MESSAGE'] });
-//log
-
 
 
 const client = new discord.Client();
@@ -47,7 +43,7 @@ client.on('messageDelete', message => {
     if(!message.partial) {
         const channel = client.channels.cache.get('647342917538807821');
         if(channel) {
-            const embed = new MessageEmbed()
+            var embed = new discord.MessageEmbed()
                 .setTitle('Deleted Message')
                 .addField('Author', `${message.author.tag} (${message.author.id})`, true)
                 .addField('Channel', `${message.channel.name} (${message.channel.id})`, true)
