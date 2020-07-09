@@ -33,16 +33,16 @@ client.login(process.env.token);
 client.on("ready", async () => {
 
     console.log(`${client.user.username} is online.`);
-    client.user.setActivity("ATF on top!", {type: "LISTENING"});
+    client.user.setActivity("ATF on top!", { type: "LISTENING" });
 
 
 });
 
 //log
 client.on('messageDelete', message => {
-    if(!message.partial) {
+    if (!message.partial) {
         const channel = client.channels.cache.get('647342917538807821');
-        if(channel) {
+        if (channel) {
             var embed = new discord.MessageEmbed()
                 .setTitle('Deleted Message')
                 .addField('Author', `@${message.author.tag}`, true)
@@ -71,14 +71,14 @@ client.on("guildMemberAdd", member => {
     //channel.send(`Welcome to ATFO ${member}!`);
 
     var joinEmbed = new discord.MessageEmbed()
-    .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
-    .setDescription(`Welcome ${member.user.username}, to ATFO!`)
-    .setColor("#00ff00")
-    .setFooter("Member joined")
-    .setTimestamp();
+        .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
+        .setDescription(`Welcome ${member.user.username}, to ATFO!`)
+        .setColor("#00ff00")
+        .setFooter("Member joined")
+        .setTimestamp();
 
     channel.send(joinEmbed);
-    
+
 
 })
 
@@ -90,29 +90,29 @@ client.on("guildMemberRemove", member => {
 
 
     var leaveEmbed = new discord.MessageEmbed()
-    .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
-    .setColor("#ff0000")
-    .setFooter("Member left")
-    .setTimestamp();
+        .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
+        .setColor("#ff0000")
+        .setFooter("Member left")
+        .setTimestamp();
 
     channel.send(leaveEmbed);
-    
+
 
 })
 
 //pokemon
 client.on('message', async message => {
-    if(message.author.bot) return;
-    if(message.content.toLowerCase().startsWith('!pokemon')) {
+    if (message.author.bot) return;
+    if (message.content.toLowerCase().startsWith('!pokemon')) {
         const pokemon = message.content.toLowerCase().split(" ")[1];
         try {
             const pokeData = await getPokemon(pokemon);
-            const { 
-                sprites, 
-                stats, 
-                weight, 
-                name, 
-                id, 
+            const {
+                sprites,
+                stats,
+                weight,
+                name,
+                id,
                 base_experience,
                 abilities,
                 types
@@ -126,7 +126,7 @@ client.on('message', async message => {
             embed.addField('Base Experience', base_experience);
             message.channel.send(embed);
         }
-        catch(err) {
+        catch (err) {
             console.log(err);
             message.channel.send(`Pokemon ${pokemon} does not exist.`);
         }
