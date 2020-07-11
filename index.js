@@ -66,7 +66,7 @@ client.on('messageUpdate', async(oldMessage, newMessage) => {
 
     if (!oldMessage.guild.me) return;
 
-    if (!oldMessage.channel.name === "🔱atf-high-command") return;
+    if (!oldMessage.channel.id === "622513188809736193") return;
     
     if(oldMessage.content === newMessage.content){
         return;
