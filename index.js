@@ -42,6 +42,8 @@ client.on('messageDelete', message => {
 
     if (!message.guild.me) return;
 
+    if (!message.channel.name === "🔱atf-high-command") return;
+
     if (!message.partial) {
         const logChannel = client.channels.cache.get('700265762174009384');
         if (logChannel) {
@@ -64,7 +66,7 @@ client.on('messageUpdate', async(oldMessage, nwMessage) => {
 
     if (!oldMessage.guild.me) return;
 
-    if (!message.channel.name === "🔱atf-high-command") return;
+    if (!oldMessage.channel.name === "🔱atf-high-command") return;
     
     if(oldMessage.content === newMessage.content){
         return;
