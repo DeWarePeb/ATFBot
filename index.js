@@ -57,6 +57,8 @@ client.on('messageDelete', message => {
 
 
 client.on('messageUpdate', async(oldMessage, nwMessage) => {
+    const logChannel = client.channels.cache.get('700265762174009384');
+    
     if(oldMessage.content === nwMessage.content){
         return;
      
