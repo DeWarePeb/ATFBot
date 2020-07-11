@@ -79,7 +79,7 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
         .setColor("#2271b3")
         .setDescription("Edited message")
         .addField("Before", oldMessage.content, true)
-        .addField("After", nwMessage.content, true)
+        .addField("After", newMessage.content, true)
         .setTimestamp();
     logChannel.send(LogEmbed);
 });
