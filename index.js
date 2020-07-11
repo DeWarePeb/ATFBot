@@ -61,7 +61,7 @@ client.on('messageDelete', message => {
 });
 
 
-client.on('messageUpdate', async(oldMessage, nwMessage) => {
+client.on('messageUpdate', async(oldMessage, newMessage) => {
     const logChannel = client.channels.cache.get('700265762174009384');
 
     if (!oldMessage.guild.me) return;
