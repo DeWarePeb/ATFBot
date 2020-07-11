@@ -61,12 +61,12 @@ client.on('messageDelete', message => {
 });
 
 
-client.on('messageUpdate', async (oldMessage, newMessage) => {
+client.on('messageUpdate', async (message, oldMessage, newMessage) => {
     const logChannel = client.channels.cache.get('700265762174009384');
 
     if (!oldMessage.guild.me) return;
 
-    if (oldMessage.channel.id !== "622513188809736193") return message.reply.send("shh");
+    if (oldMessage.channel.id !== "622513188809736193") return message.reply("shh");
 
     if (oldMessage.content === newMessage.content) {
         return;
