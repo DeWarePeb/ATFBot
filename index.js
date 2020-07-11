@@ -40,10 +40,8 @@ client.on("ready", async () => {
 //log
 client.on('messageDelete', message => {
 
-    if (!message.member.hasPermission("BAN_MEMBERS")) return;
-
     if (!message.partial) {
-        const channel = client.channels.cache.get('700265762174009384');
+        const logChannel = client.channels.cache.get('700265762174009384');
         if (channel) {
             var embed = new discord.MessageEmbed()
                 .setTitle('Deleted Message')
@@ -52,11 +50,28 @@ client.on('messageDelete', message => {
                 .setDescription(message.content)
                 .setFooter(`Author ID: (${message.author.id}) | Message ID: (${message.author.id}) `)
                 .setTimestamp();
-            channel.send(embed);
+            logChannel.send(embed);
         }
     }
 });
 
+
+client.on('messageUpdate', async(oldMessage, nwMessage) => {
+    if(oldMessage.content === nwMessage.content){
+        return;
+     
+    }
+
+       var LogEmbed = new discord.RichEmbed()
+       .setAuthor(oldMessage.author.tag, oldMessage.author.avatarURL)
+       .setThumbnail(oldMessage.author.avatarURL)
+       .setColor("000000")
+       .setDescription("Edited message")
+       .addField("Before", oldMessage.content, true)
+       .addField("After", nwMessage.content, true)
+       .setTimestamp();
+     logChannel.send(LogEmbed);
+});
 //log
 
 client.on("guildMemberAdd", member => {
