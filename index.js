@@ -63,8 +63,10 @@ client.on('messageUpdate', async(oldMessage, nwMessage) => {
     const logChannel = client.channels.cache.get('700265762174009384');
 
     if (!oldMessage.guild.me) return;
+
+    if (!message.channel.name === "🔱atf-high-command") return;
     
-    if(oldMessage.content === nwMessage.content){
+    if(oldMessage.content === newMessage.content){
         return;
      
     }
