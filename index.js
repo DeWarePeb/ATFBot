@@ -3,7 +3,6 @@ const botconfig = require("./botconfig.json");
 const fs = require("fs");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
-const { addexp } = require("./commands/xp.js")
 
 const client = new discord.Client();
 client.commands = new discord.Collection();
