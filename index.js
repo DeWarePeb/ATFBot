@@ -61,27 +61,27 @@ client.on('messageDelete', message => {
 });
 
 
-client.on('messageUpdate', async(oldMessage, newMessage) => {
+client.on('messageUpdate', async (oldMessage, newMessage) => {
     const logChannel = client.channels.cache.get('700265762174009384');
 
     if (!oldMessage.guild.me) return;
 
-    if (!oldMessage.channel.id === "622513188809736193") return;
-    
-    if(oldMessage.content === newMessage.content){
+    if (oldMessage.channel.id !== "622513188809736193") return;
+
+    if (oldMessage.content === newMessage.content) {
         return;
-     
+
     }
 
-       var LogEmbed = new discord.MessageEmbed()
-       .setAuthor(oldMessage.author.tag, oldMessage.author.avatarURL)
-       .setThumbnail(oldMessage.author.avatarURL)
-       .setColor("#2271b3")
-       .setDescription("Edited message")
-       .addField("Before", oldMessage.content, true)
-       .addField("After", nwMessage.content, true)
-       .setTimestamp();
-     logChannel.send(LogEmbed);
+    var LogEmbed = new discord.MessageEmbed()
+        .setAuthor(oldMessage.author.tag, oldMessage.author.avatarURL)
+        .setThumbnail(oldMessage.author.avatarURL)
+        .setColor("#2271b3")
+        .setDescription("Edited message")
+        .addField("Before", oldMessage.content, true)
+        .addField("After", nwMessage.content, true)
+        .setTimestamp();
+    logChannel.send(LogEmbed);
 });
 //log
 
