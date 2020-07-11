@@ -62,7 +62,7 @@ client.on('messageUpdate', async(oldMessage, nwMessage) => {
      
     }
 
-       var LogEmbed = new discord.RichEmbed()
+       var LogEmbed = new discord.MessageEmbed()
        .setAuthor(oldMessage.author.tag, oldMessage.author.avatarURL)
        .setThumbnail(oldMessage.author.avatarURL)
        .setColor("000000")
