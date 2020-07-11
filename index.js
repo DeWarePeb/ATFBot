@@ -42,7 +42,7 @@ client.on('messageDelete', message => {
 
     if (!message.partial) {
         const logChannel = client.channels.cache.get('700265762174009384');
-        if (channel) {
+        if (logChannel) {
             var embed = new discord.MessageEmbed()
                 .setTitle('Deleted Message')
                 .addField('Author', `@${message.author.tag}`, true)
