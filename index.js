@@ -66,7 +66,7 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
 
     if (!oldMessage.guild.me) return;
 
-    if (oldMessage.channel.id !== "622513188809736193") return message.channel.send("shh");
+    if (oldMessage.channel.id !== "622513188809736193") return message.reply.send("shh");
 
     if (oldMessage.content === newMessage.content) {
         return;
