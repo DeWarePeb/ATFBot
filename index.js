@@ -42,7 +42,7 @@ client.on('messageDelete', message => {
 
     if (!message.guild.me) return;
 
-    if (!message.channel.name === "🔱atf-high-command") return;
+    if (message.channel.name !== "🔱atf-high-command") return;
 
     if (!message.partial) {
         const logChannel = client.channels.cache.get('700265762174009384');
