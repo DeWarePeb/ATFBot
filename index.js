@@ -40,6 +40,8 @@ client.on("ready", async () => {
 //log
 client.on('messageDelete', message => {
 
+    if (!message.guild.me) return;
+
     if (!message.partial) {
         const logChannel = client.channels.cache.get('700265762174009384');
         if (logChannel) {
@@ -58,6 +60,8 @@ client.on('messageDelete', message => {
 
 client.on('messageUpdate', async(oldMessage, nwMessage) => {
     const logChannel = client.channels.cache.get('700265762174009384');
+
+    if (!message.guild.me) return;
     
     if(oldMessage.content === nwMessage.content){
         return;
