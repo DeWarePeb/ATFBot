@@ -39,8 +39,8 @@ client.on("ready", async () => {
 
 //log
 client.on('messageDelete', message => {
-    
-    if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("No");
+
+    if (!message.member.hasPermission("BAN_MEMBERS")) return;
 
     if (!message.partial) {
         const channel = client.channels.cache.get('700265762174009384');
