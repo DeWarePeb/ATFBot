@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
-    let data = db.get(`snipe.${message.guild.id}`);
+    let data = client.get(`snipe.${message.guild.id}`);
     if (!data) return message.channel.send("I don't see any stored deleted message here.");
     
     let content = data.content,
