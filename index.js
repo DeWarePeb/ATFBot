@@ -87,6 +87,8 @@ client.on("guildMemberAdd", member => {
 
     if (!role) return;
 
+    if (member.user.bot) return;
+
     member.roles.add(role);
 
     var channel = member.guild.channels.cache.get('575107491873161229');
