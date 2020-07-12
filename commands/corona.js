@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const { NovelCovid } = require("novelcovid");
-const track = new NovelCovid();
+//const track = new NovelCovid();
 
 module.exports.run = async (bot, message, args) => {
     if (!args.length) {
