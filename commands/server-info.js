@@ -7,7 +7,8 @@ module.exports.run = async(bot, message, args) =>{
                .addFields(
                    {name: "You have joined this server on:", value: message.member.joinedAt},
                    {name: "Members:", value:message.guild.memberCount},
-                   {name: "owner", value:message.guild.owner.user.tag}
+                   {name: "Owner", value:message.guild.owner.user.tag},
+                   {name: "Boosts", value:message.guild.premiumTier ? message.guild.premiumTier : 'none'}
                )
                .setTimestamp()
         return message.channel.send(botEmbed);
