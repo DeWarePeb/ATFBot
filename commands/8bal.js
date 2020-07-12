@@ -1,20 +1,20 @@
 const discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
-    var question = message.content.slice(bot.prefix.length + 6);
+module.exports.run = async (client, message, args) => {
+    var question = message.content.slice(client.prefix.length + 6);
     if (!question)
         return message.channel.send(`You did not specify your question!`);
-     else {
-        let responses = [
+    else {
+        var responses = [
             "Yes",
             "No",
             "Definetly",
             "Absoloutely",
             "Not in a million years",
         ];
-        let response =
+        var response =
             responses[Math.floor(Math.random() * responses.length - 1)];
-        let Embed = new discord.MessageEmbed()
+        var Embed = new discord.MessageEmbed()
             .setTitle(`8Ball!`)
             .setDescription(`Your question: ${question}\nMy reply: ${response}`)
             .setColor(`RANDOM`);
@@ -24,13 +24,13 @@ module.exports.run = async (bot, message, args) => {
     }
 
 }
-    
-    
-    
-    
-    
+
+
+
+
+
 module.exports.help = {
-        name: "8ball",
-        description: "Hi",
-        category: "Fun"
-    }
+    name: "8ball",
+    description: "Hi",
+    category: "Fun"
+}
