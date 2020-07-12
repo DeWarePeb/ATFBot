@@ -47,7 +47,7 @@ client.on('messageDelete', message => {
         if (logChannel) {
             var embed = new discord.MessageEmbed()
                 .setTitle('Deleted Message')
-                .setColor("#800000")
+                .setColor("RED")
                 .addField('Author', `@${message.author.tag}`, true)
                 .addField('Channel', `#${message.channel.name}`, true)
                 .setDescription(message.content)
@@ -72,7 +72,7 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
     var LogEmbed = new discord.MessageEmbed()
         .setAuthor(oldMessage.author.tag, oldMessage.author.avatarURL)
         .setThumbnail(oldMessage.author.avatarURL)
-        .setColor("#2271b3")
+        .setColor("GREEN")
         .setDescription("Edited message")
         .addField("Before", oldMessage.content, true)
         .addField("After", newMessage.content, true)
