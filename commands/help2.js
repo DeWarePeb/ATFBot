@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
     } else {
         const commands = await client.commands;
 
-        let emx = new MessageEmbed()
+         var emx = new discord.MessageEmbed()
             .setDescription("Join my server or Die :D")
             .setColor("GREEN")
             .setFooter(client.user.username, client.user.displayAvatarURL())
