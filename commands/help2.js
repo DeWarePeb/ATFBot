@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
             return message.channel.send("Unknown Command: " + args[0]);
         }
 
-        let embed = new MessageEmbed()
+        var embed = new discord.MessageEmbed()
             .setAuthor(command.name, client.user.displayAvatarURL())
             .addField("Description", command.description || "Not Provided :(")
             .addField("Usage", "`" + command.usage + "`" || "Not Provied")
