@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const { NovelCovid } = require("novelcovid");
-//const track = new NovelCovid();
+const track = new NovelCovid();
 
 module.exports.run = async (bot, message, args) => {
     if (!args.length) {
@@ -23,7 +23,24 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-    }
+    }else {
+        let corona = await track.countries(args.join(" ")) //change it to countries
+        
+        let embed = new discord.MessageEmbed()
+        .setTitle(`${corona.country}`)
+        .setColor("#ff2050")
+        .setDescription("Sometimes cases number may differ from small amount.")
+        .addField("Total Cases", corona.cases, true)
+        .addField("Total Deaths", corona.deaths, true)
+        .addField("Total Recovered", corona.recovered, true)
+        .addField("Today's Cases", corona.todayCases, true)
+        .addField("Today's Deaths", corona.todayDeaths, true)
+        .addField("Active Cases", corona.active, true);
+        
+        return message.channel.send(embed)
+        
+        
+      }
 
 }
 
