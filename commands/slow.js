@@ -6,7 +6,7 @@ return message.channel.send(
   `You did not specify the time in seconds you wish to set this channel's slow mode too!`
 );
 if (isNaN(args[0])) return message.channel.send(`That is not a number!`);
-let reason = message.content.slice(
+var reason = message.content.slice(
 bot.prefix.length + 9 + args[0].length + 1
 );
 if (!reason) {
