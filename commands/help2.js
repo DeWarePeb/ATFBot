@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
     if (args[0]) {
         const command = await client.commands.get(args[0]);
 
