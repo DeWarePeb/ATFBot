@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
       }
       
       if(args.join(" ") === "all") {
-        let corona = await track.all() //it will give global cases
+        let corona = await track.all() 
         
         let embed = new discord.MessageEmbed()
         .setTitle("Global Cases")
@@ -26,8 +26,7 @@ module.exports.run = async (bot, message, args) => {
         
         
       } else {
-        let corona = await track.countries(args.join(" ")) //change it to countries
-        
+        let corona = await track.countries(args.join(" ")) 
         let embed = new discord.MessageEmbed()
         .setTitle(`${corona.country}`)
         .setColor("#ff2050")
