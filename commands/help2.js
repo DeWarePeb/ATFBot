@@ -21,14 +21,14 @@ module.exports.run = async (client, message, args) => {
         const commands = await client.commands;
 
          var emx = new discord.MessageEmbed()
-            .setDescription("Join my server or Die :D")
+            .setDescription("Bot commands")
             .setColor("GREEN")
             .setFooter(client.user.username, client.user.displayAvatarURL())
             .setThumbnail(client.user.displayAvatarURL());
 
         let com = {};
         for (let comm of commands.array()) {
-            let category = comm.category || "Unknown";
+            let category = comm.category || "Fun";
             let name = comm.name;
 
             if (!com[category]) {
