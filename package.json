@@ -17,7 +17,8 @@
     "request": "^2.88.2",
     "request-promise-native": "^1.0.8",
     "save": "^2.4.0",
-    "snekfetch": "^4.0.4"
+    "snekfetch": "^4.0.4",
+    "weather": "^1.0.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
