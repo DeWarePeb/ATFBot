@@ -6,7 +6,8 @@ module.exports.run = async(bot, message, args) =>{
                .setColor("#0099ff")
                .addFields(
                    {name: "You have joined this server on:", value: message.member.joinedAt},
-                   {name: "Members:", value:message.guild.memberCount}
+                   {name: "Members:", value:message.guild.memberCount},
+                   {name: "owner", value:message.guild.owner.user.tag}
                )
                .setTimestamp()
         return message.channel.send(botEmbed);
