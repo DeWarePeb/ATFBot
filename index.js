@@ -95,8 +95,6 @@ client.on("guildMemberAdd", member => {
 
     if (!channel) return;
 
-    //channel.send(`Welcome to ATFO ${member}!`);
-
     var joinEmbed = new discord.MessageEmbed()
         .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
         .setDescription(`Welcome ${member.user.username}, to ATFO!`)
