@@ -17,7 +17,7 @@ module.exports.run = async(client, message, args) =>{
         }
       })
     } catch (e) {
-      this.safeSendMessage(msg.channel, 'Something went wrong, try again later')
+      this.safeSendMessage(message.channel.send, 'Something went wrong, try again later')
       logger.error('CMD', e)
     }
     
