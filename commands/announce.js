@@ -9,7 +9,7 @@ module.exports.run = async(client, message, args) =>{
       );
     console.log(rChannel);
     let MSG = message.content
-      .split(`${bot.prefix}announce ${rChannel.id} `)
+      .split(`${client.prefix}announce ${rChannel.id} `)
       .join("");
     if (!MSG)
       return message.channel.send(`You did not specify your message to send!`);
