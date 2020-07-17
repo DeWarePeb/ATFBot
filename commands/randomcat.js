@@ -5,7 +5,7 @@ module.exports.run = async(client, message, args) =>{
     try {
       const res = await SA.get('https://aws.random.cat/meow')
       const fact = (await SA.get('https://catfact.ninja/fact')).body.fact
-      await this.safeSendMessage(msg.channel, {
+      await this.message(msg.channel, {
         embed: {
           description: fact,
           image: {
@@ -17,7 +17,7 @@ module.exports.run = async(client, message, args) =>{
         }
       })
     } catch (e) {
-      this.safeSendMessage(message.channel.send, 'Something went wrong, try again later')
+      this.message(message.channel.send, 'Something went wrong, try again later')
       logger.error('CMD', e)
     }
     
