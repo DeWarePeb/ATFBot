@@ -16,10 +16,10 @@ module.exports.run = async(client, message, args) =>{
     const _ = new MessageEmbed()
       .setTitle(`New announcement!`)
       .setDescription(`${MSG}`)
-      .setColor("RANDOM");
+      .setColor("BLACK");
     rChannel.send(_);
     message.delete();
-    
+
 }
 
 module.exports.help = {
