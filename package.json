@@ -19,6 +19,7 @@
     "save": "^2.4.0",
     "snekfetch": "^4.0.4",
     "superagent": "^5.3.1",
+    "urban": "^0.3.2",
     "weather": "^1.0.4",
     "weather-js": "^2.0.0"
   },
