@@ -84,6 +84,18 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
 });
 //log
 
+//pics check
+client.on("message", async message =>{
+    if (message.channel.id === '583626618711441419') {
+        if (isNaN(message.content)){
+            message.delete()
+            message.author.send("no texts in here")
+        }
+    }
+})
+//pics check
+
+//welkom
 client.on("guildMemberAdd", member => {
 
     var role = member.guild.roles.cache.get('625462119940227103');
@@ -110,7 +122,7 @@ client.on("guildMemberAdd", member => {
 
 })
 
-
+//leave
 client.on("guildMemberRemove", member => {
     var channel = member.guild.channels.cache.get('622513188809736193');
 
@@ -171,4 +183,4 @@ client.on("message", async message => {
 )
 
 //zelf host
-//client.login("voer hier in");
+//client.login("token");
