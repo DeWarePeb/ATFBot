@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 const fs = require("fs");
 const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
-
+//const TOKEN = require("./botconfig.json");
 
 const client = new discord.Client();
 client.commands = new discord.Collection();
@@ -27,7 +27,10 @@ fs.readdir("./commands", (err, files) => {
     })
 });
 
+
+//heroku
 client.login(process.env.token);
+
 
 client.on("ready", async () => {
 
@@ -166,3 +169,6 @@ client.on("message", async message => {
     }
 }
 )
+
+//zelf host
+//client.login("NzMwMDk3OTMwMDc3NDcwNzUw.XwSirw.760HTi6o3DbbKEG7hkeUyC7fpIU");
