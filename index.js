@@ -171,4 +171,4 @@ client.on("message", async message => {
 )
 
 //zelf host
-//client.login("NzMwMDk3OTMwMDc3NDcwNzUw.XwSirw.760HTi6o3DbbKEG7hkeUyC7fpIU");
+//client.login("voer hier in");
