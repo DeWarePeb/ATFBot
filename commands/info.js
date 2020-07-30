@@ -14,10 +14,7 @@ module.exports.run = async (client, message, args) => {
             `**Version:** V${version}`
         ])
         .addField('System', [
-            `**Uptime:** ${ms(os.uptime() * 1000, { long: true})}`,
-            `**❯ Memory:**`,
-				`\u3000 Total: ${this.client.utils.formatBytes(process.memoryUsage().heapTotal)}`,
-				`\u3000 Used: ${this.client.utils.formatBytes(process.memoryUsage().heapUsed)}`
+            `**Uptime:** ${ms(os.uptime() * 1000, { long: true })}`
         ])
         .setTimestamp();
     message.channel.send(embed);
