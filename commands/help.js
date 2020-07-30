@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const Command = require('../../Structures/Command');
+const Command = require('../command');
 
 module.exports.run = async (message, [command]) => {
 
