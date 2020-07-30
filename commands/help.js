@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async (message, [command]) => {
+module.exports.run = async (message) => {
 
     var helpEmbed = new discord.MessageEmbed()
     .setTitle("Bot help")
