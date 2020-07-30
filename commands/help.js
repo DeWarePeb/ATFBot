@@ -5,7 +5,6 @@ module.exports.run = async (client, message, args) => {
     var embed = new discord.MessageEmbed()
         .setColor('BLUE')
         .setAuthor(`${message.guild.name} Help Menu`, message.guild.iconURL({ dynamic: true }))
-        .setThumbnail(this.client.user.displayAvatarURL())
         .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ dynamic: true }))
         .setTimestamp();
 
