@@ -64,7 +64,11 @@
 				`**❯ Voice Channels:** ${channels.filter(channel => channel.type === 'voice').size}`,
 				`**❯ Boost Count:** ${message.guild.premiumSubscriptionCount || '0'}`,
 				'\u200b'
-			])
+            ])
+            .addField('Your stats', [
+                `**❯ You have joined ATFO on:** ${message.member.joinedAt}`,
+                `\u200b`
+            ])
 			.addField('Presence', [
 				`**❯ Online:** ${members.filter(member => member.presence.status === 'online').size}`,
 				`**❯ Idle:** ${members.filter(member => member.presence.status === 'idle').size}`,
