@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
             `**Prefix: ${prefix}`,
             `**Version:** V${version}`
         ])
-        .setTimestamp;
+        .setTimestamp();
     message.channel.send(embed);
 }
 
