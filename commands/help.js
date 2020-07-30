@@ -2,14 +2,46 @@ const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 
-    var helpEmbed = new discord.MessageEmbed()
-        .setTitle("Bot help")
-        .setColor("#0099ff")
-        .setDescription(`**Fun commands** \n /rps - Rock Paper Sissors command \n /hi - says hi \n /lenny - ( ͡° ͜ʖ ͡°) \n\n **Info commands** \n /avatar - gives the avatar of a member \n /info - Gives information about the bot \n /logo - gives the crew logo \n /rules - gives the crew rules \n /server-info - gives information about the server \n /suggestion - make a suggestion \n /ticket - open a ticket \n\n **Moderation commands** \n /ban - ban someone \n /clear - delete messages from a channel \n /kick - kick someone \n /mute - mute someone \n /tempmute - temp mute someone \n /unmute - unmute someone `)
-        .setTimestamp()
-    return message.channel.send(helpEmbed);
+    var embed = new discord.MessageEmbed()
+        .setColor('BLUE')
+        .setAuthor(`${message.guild.name} Help Menu`, message.guild.iconURL({ dynamic: true }))
+        .setThumbnail(this.client.user.displayAvatarURL())
+        .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ dynamic: true }))
+        .setTimestamp();
 
+    if (command) {
+        const cmd = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command));
 
+        if (!cmd) return message.channel.send(`Invalid Command named. \`${command}\``);
+
+        embed.setAuthor(`${this.client.utils.capitalise(cmd.name)} Command Help`, this.client.user.displayAvatarURL());
+        embed.setDescription([
+            `**❯ Aliases:** ${cmd.aliases.length ? cmd.aliases.map(alias => `\`${alias}\``).join(' ') : 'No Aliases'}`,
+            `**❯ Description:** ${cmd.description}`,
+            `**❯ Category:** ${cmd.category}`,
+            `**❯ Usage:** ${cmd.usage}`
+        ]);
+
+        return message.channel.send(embed);
+    } else {
+        embed.setDescription([
+            `These are the available commands for ${message.guild.name}`,
+            `The bot's prefix is: ${this.client.prefix}`,
+            `Command Parameters: \`<>\` is strict & \`[]\` is optional`
+        ]);
+        let categories;
+        if (!this.client.owners.includes(message.author.id)) {
+            categories = this.client.utils.removeDuplicates(this.client.commands.filter(cmd => cmd.category !== 'Owner').map(cmd => cmd.category));
+        } else {
+            categories = this.client.utils.removeDuplicates(this.client.commands.map(cmd => cmd.category));
+        }
+
+        for (const category of categories) {
+            embed.addField(`**${this.client.utils.capitalise(category)}**`, this.client.commands.filter(cmd =>
+                cmd.category === category).map(cmd => `\`${cmd.name}\``).join(' '));
+        }
+        return message.channel.send(embed);
+    }
 }
 
 module.exports.help = {
