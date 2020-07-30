@@ -9,7 +9,6 @@ module.exports.run = async (client, message, args) => {
         .setThumbnail("https://cdn.discordapp.com/attachments/625873846452486175/720644029829611560/image0.jpg")
         .setColor('BLUE')
         .addField('General', [
-            `**Bot:** ${this.client.user.tag} (${this.client.user.id})`,
             `**Prefix: ${prefix}`,
             `**Version:** V${version}`
         ])
