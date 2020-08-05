@@ -9,8 +9,6 @@ module.exports.run = async(bot, message, args) =>{
     
         if (!args[0]) return message.reply("who?");
     
-        if (!args[1]) return message.reply("why?");
-    
         var kickUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
     
         var reason = args.slice(1).join(" ");
@@ -27,8 +25,12 @@ module.exports.run = async(bot, message, args) =>{
             .setDescription(`** kicked:** ${kickUser} (${kickUser.id})
             **kicked by:** ${message.author}
             **reason: ** ${reason}`);
-    
-        var embedPrompt = new discord.MessageEmbed()
+
+            kickUser.kick(reason).catch(err => {
+                if (err) return message.channel.send(`Something went wrong.`);
+            });
+            message.reply(embed);
+         /*var embedPrompt = new discord.MessageEmbed()
             .setColor("GREEN")
             .setAuthor("React whitin 30 sec")
             .setDescription(`do you want to kick ${kickUser}?`);
@@ -37,22 +39,6 @@ module.exports.run = async(bot, message, args) =>{
         message.channel.send(embedPrompt).then(async msg => {
     
             var emoji = await promptMessage(msg, message.author, 30, ["✅", "❌"]);
-    
-    
-            // We kijken dat het de gebruiker is die het als eerste heeft uitgevoerd.
-            // message.channel.awaitMessages(m => m.author.id == message.author.id,
-            //     { max: 1, time: 30000 }).then(collected => {
-    
-            //         if (collected.first().content.toLowerCase() == 'yes') {
-            //             message.reply('Kick speler.');
-            //         }
-            //         else
-            //             message.reply('Geanuleerd');
-    
-            //     }).catch(() => {
-            //         message.reply('Geen antwoord na 30 sec, geanuleerd.');
-            //     });
-    
     
             if (emoji === "✅") {
     
@@ -94,10 +80,11 @@ async function promptMessage(message, author, time, reactions) {
     // We kijken als de reactie juist is, dus met die filter en ook het aantal keren en binnen de tijd.
     // Dan kunnen we bericht terug sturen met dat icoontje dat is aangeduid.
     return message.awaitReactions(filter, { max: 1, time: time }).then(collected => collected.first() && collected.first().emoji.name);
+*/
 }
 
 module.exports.help = {
     name: "kick",
     description: "get outta here",
     category: "Moderation"
-}
+} 
