@@ -4,8 +4,6 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[1]) return message.reply("Who?");
 
-    if (!args[2]) return message.reply("No reason");
-
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("No");
 
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("No permission");
