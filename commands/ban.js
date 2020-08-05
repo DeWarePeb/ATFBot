@@ -2,15 +2,13 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!args[1]) return message.reply("Who?");
+    if (!args[0]) return message.reply("Who?");
 
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("No");
 
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("No permission");
 
     var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
-
-    var reason = args.slice(2).join(" ");
 
     if (!banUser) return message.reply("cannot find user");
 
