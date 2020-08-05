@@ -20,8 +20,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter(message.member.displayName, message.author.displayAvatarURL)
         .setTimestamp()
         .setDescription(`** Banned:** ${banUser} (${banUser.id})
-        **Banned By:** ${message.author}
-        **Reason: ** ${reason}`);
+        **Banned By:** ${message.author}`);
 
     banUser.ban(reason).catch(err => {
         if (err) return message.channel.send(`Something went wrong`);
