@@ -10,6 +10,8 @@ module.exports.run = async (bot, message, args) => {
 
     var banUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
 
+    var reason = args.slice(1).join(" ");
+
     if (!banUser) return message.reply("cannot find user");
 
     if (banUser.hasPermission("MANAGE_MESSAGES")) return message.reply("No");
@@ -20,7 +22,8 @@ module.exports.run = async (bot, message, args) => {
         .setFooter(message.member.displayName, message.author.displayAvatarURL)
         .setTimestamp()
         .setDescription(`** Banned:** ${banUser} (${banUser.id})
-        **Banned By:** ${message.author}`);
+        **Banned By:** ${message.author}
+        **reason: ** ${reason}`);
 
     banUser.ban(reason).catch(err => {
         if (err) return message.channel.send(`Something went wrong`);
